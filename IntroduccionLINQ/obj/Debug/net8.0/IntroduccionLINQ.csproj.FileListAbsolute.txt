@@ -12,3 +12,4 @@ C:\Users\MINEDUCYT\Desktop\Guias\IntroduccionLINQ\IntroduccionLINQ\obj\Debug\net
 C:\Users\MINEDUCYT\Desktop\Guias\IntroduccionLINQ\IntroduccionLINQ\obj\Debug\net8.0\IntroduccionLINQ.pdb
 C:\Users\MINEDUCYT\Desktop\Guias\IntroduccionLINQ\IntroduccionLINQ\obj\Debug\net8.0\IntroduccionLINQ.genruntimeconfig.cache
 C:\Users\MINEDUCYT\Desktop\Guias\IntroduccionLINQ\IntroduccionLINQ\obj\Debug\net8.0\ref\IntroduccionLINQ.dll
+C:\Users\MINEDUCYT\Desktop\Guias\IntroduccionLINQ\IntroduccionLINQ\obj\Debug\net8.0\IntroduccionLINQ.sourcelink.json

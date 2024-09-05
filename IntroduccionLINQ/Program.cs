@@ -1,6 +1,6 @@
-﻿#region Introduccion
+﻿using IntroduccionLINQ;
+#region Introduccion
 // Uso de LINQ y Arrays
-using IntroduccionLINQ;
 
 //string[] palabras;
 //palabras = new string[] { "gato", "perro", "lagarto", "tortuga", "cocodrilo", "serpiente" };
@@ -40,20 +40,18 @@ List<Habitante> ListaHabitantes = new List<Habitante>();
 #region listaCasa
 ListaCasas.Add(new Casa
 {
-    Id = 1,
-    Direccion = "3 av Norte ArcanCity",
-    Ciudad = "Gothan City",
-    numeroHabitaciones = 20,
+Id = 1,
+Direccion = "3 av Norte ArcanCity",
+Ciudad = "Gothan City",
+numeroHabitaciones = 20,
 });
-
 ListaCasas.Add(new Casa
 {
-    Id = 2,
-    Direccion = "6 av Sur SmollVille",
-    Ciudad = "Metropolis",
-    numeroHabitaciones = 5,
+Id = 2,
+Direccion = "6 av Sur SmollVille",
+Ciudad = "Metropolis",
+numeroHabitaciones = 5,
 });
-
 ListaCasas.Add(new Casa
 {
     Id = 3,
@@ -143,5 +141,31 @@ foreach (Habitante h in listaCasaGothan)
 {
     Console.WriteLine(h.datosHabitante());
 }
+
+#endregion
+
+#region FirsthAndFirsthOrDefault
+Console.WriteLine("----------------------------------------------------------------------------------------------");
+var primeraCasa = ListaCasas.First(); //esto no es linQ es  una fucnin de los Ienumarable
+Console.WriteLine(primeraCasa.dameDatosCasa());
+
+//aplicando una restriccion sin restricion lambda
+Habitante personaEdad = (from variableTemporalHabitante in ListaHabitantes where variableTemporalHabitante.Edad > 25 select variableTemporalHabitante).First();
+Console.WriteLine(personaEdad.datosHabitante());
+Console.WriteLine("---------------------------Lo mismo pero con lambdas-------------------------------------------");
+var Habitante1 = ListaHabitantes.First(objectTemp => objectTemp.Edad >25);
+Console.WriteLine(Habitante1.datosHabitante());
+
+// Si no tenemos el elemento que buscamos entoences la sonsulta devolvera una exepcion esto detendra el codigo en su totalidad
+
+//Casa EdadError = (from vCasaTemp in ListaCasas where vCasaTemp.Id >10 select vCasaTemp).First() ;
+//Console.WriteLine(EdadError.dameDatosCasa());
+
+Casa CasaConFirsthOrDedault = ListaCasas.FirstOrDefault(vCasa => vCasa.Id > 200);
+if (CasaConFirsthOrDedault == null ) {
+    Console.WriteLine("No existe !No hay!");
+    return;
+}
+Console.WriteLine("existe !Si existe!");
 
 #endregion

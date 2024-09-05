@@ -16,7 +16,7 @@ namespace IntroduccionLINQ
         public string datosHabitante()
         {
 
-            return $"Soy {Nombre} con edad de {Edad} años vividos den {IdCasa}";
+            return $"Soy {Nombre} con edad de {Edad} años vividos en {IdCasa}";
         }
     }
 }
