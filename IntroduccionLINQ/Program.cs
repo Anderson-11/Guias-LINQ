@@ -114,12 +114,13 @@ ListaHabitantes.Add(new Habitante
 {
     IdHabitante = 1,
     Nombre = "Nathan Drake",
-    Edad = 36,
+    Edad = 62,
     IdCasa = 1
 });
 #endregion
 
 #region SentenciasLinQ
+/*
 IEnumerable<Habitante> ListaEdad = from ObjetoProvicional
                                    in ListaHabitantes
                                    where ObjetoProvicional.Edad > 40
@@ -141,10 +142,11 @@ foreach (Habitante h in listaCasaGothan)
 {
     Console.WriteLine(h.datosHabitante());
 }
-
+*/
 #endregion
 
 #region FirsthAndFirsthOrDefault
+/*
 Console.WriteLine("----------------------------------------------------------------------------------------------");
 var primeraCasa = ListaCasas.First(); //esto no es linQ es  una fucnin de los Ienumarable
 Console.WriteLine(primeraCasa.dameDatosCasa());
@@ -167,5 +169,19 @@ if (CasaConFirsthOrDedault == null ) {
     return;
 }
 Console.WriteLine("existe !Si existe!");
+*/
+#endregion
 
+#region Last
+Casa ultimaCasa = ListaCasas.Last(temp => temp.Id > 1);
+Console.WriteLine(ultimaCasa.dameDatosCasa());
+Console.WriteLine("_____________________________________________________");
+var h1 = (from objHabitante in ListaHabitantes where objHabitante.Edad > 60 select objHabitante)
+    .LastOrDefault();
+if (h1 == null)
+{
+    Console.WriteLine("Algo fallo");
+    return;
+}
+Console.WriteLine(h1.datosHabitante());
 #endregion
