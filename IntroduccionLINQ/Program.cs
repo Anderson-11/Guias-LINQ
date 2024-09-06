@@ -236,7 +236,7 @@ foreach (var edad in edadAC)
 #endregion
 
 #region OrderBYDescending()
-var listaEdad = ListaHabitantes.OrderByDescending(x => x.Edad);
+/*var listaEdad = ListaHabitantes.OrderByDescending(x => x.Edad);
 foreach (Habitante h in listaEdad) { 
     Console.WriteLine(h.datosHabitante());
 }
@@ -246,5 +246,38 @@ foreach (Habitante h in ListaEdad2)
 {
     Console.WriteLine(h.datosHabitante());
 }
+*/
+#endregion
 
+#region ThenBy
+var habitantes3 = ListaHabitantes.OrderBy(x => x.Edad).ThenBy(x => x.Nombre);
+
+foreach (var h in habitantes3)
+{
+    Console.WriteLine(h.datosHabitante());
+}
+Console.WriteLine("-------------------------------------------");
+var lista4 = from h in ListaHabitantes orderby h.Edad, h.Nombre ascending select h;
+
+foreach (var h in lista4)
+{
+    Console.WriteLine(h.datosHabitante());
+}
+Console.WriteLine("-------------------------------------------");
+#endregion
+
+#region ThenByDescending
+var habitantes4 = ListaHabitantes.OrderBy(x => x.Edad).ThenByDescending(x => x.Nombre);
+
+foreach (var h in habitantes4)
+{
+    Console.WriteLine(h.datosHabitante());
+}
+Console.WriteLine("-------------------------------------------");
+var lista5 = from h in ListaHabitantes orderby h.Edad, h.Nombre descending select h;
+
+foreach (var h in lista4)
+{
+    Console.WriteLine(h.datosHabitante());
+}
 #endregion
