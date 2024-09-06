@@ -215,12 +215,36 @@ catch (Exception)
 #endregion
 
 #region typeOf
-var listaEmpleados = new List<Empleado>() {
+/*var listaEmpleados = new List<Empleado>() {
     new Medico(){ nombre= "Jorge Casa" },
     new Enfermero(){ nombre = "Raul Blanco"}
 };
 
 var medico = listaEmpleados.OfType<Medico>();
 Console.WriteLine(medico.Single().nombre);
+*/
+#endregion
+
+#region OrderBy
+/*var edadA = ListaHabitantes.OrderBy(x => x.Edad);
+var edadAC = from vt in ListaHabitantes orderby vt.Edad select vt;
+foreach (var edad in edadAC)
+{
+    Console.WriteLine(edad.datosHabitante());
+}
+*/
+#endregion
+
+#region OrderBYDescending()
+var listaEdad = ListaHabitantes.OrderByDescending(x => x.Edad);
+foreach (Habitante h in listaEdad) { 
+    Console.WriteLine(h.datosHabitante());
+}
+Console.WriteLine("-------------------------------------------");
+var ListaEdad2 = from h in ListaHabitantes orderby h.Edad descending select h;
+foreach (Habitante h in ListaEdad2)
+{
+    Console.WriteLine(h.datosHabitante());
+}
 
 #endregion
