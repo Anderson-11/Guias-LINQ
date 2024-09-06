@@ -107,7 +107,7 @@ ListaHabitantes.Add(new Habitante
 {
     IdHabitante = 1,
     Nombre = "Alfred",
-    Edad = 65,
+    Edad = 19,
     IdCasa = 1
 });
 ListaHabitantes.Add(new Habitante
@@ -173,7 +173,7 @@ Console.WriteLine("existe !Si existe!");
 #endregion
 
 #region Last
-Casa ultimaCasa = ListaCasas.Last(temp => temp.Id > 1);
+/*Casa ultimaCasa = ListaCasas.Last(temp => temp.Id > 1);
 Console.WriteLine(ultimaCasa.dameDatosCasa());
 Console.WriteLine("_____________________________________________________");
 var h1 = (from objHabitante in ListaHabitantes where objHabitante.Edad > 60 select objHabitante)
@@ -183,5 +183,44 @@ if (h1 == null)
     Console.WriteLine("Algo fallo");
     return;
 }
-Console.WriteLine(h1.datosHabitante());
+Console.WriteLine(h1.datosHabitante());*/
+#endregion
+
+#region ElementAt
+/*var terceraCasa = ListaCasas.ElementAt(2);
+Console.WriteLine($"La tercera casa es {terceraCasa.dameDatosCasa()}");
+
+var casaError = ListaCasas.ElementAtOrDefault(3);
+if (casaError != null) { Console.WriteLine($"La tercera casa es {casaError.dameDatosCasa()}"); }
+
+var segundoHabitante = (from objetoTem in ListaHabitantes select objetoTem).ElementAtOrDefault(2);
+Console.WriteLine($"Y el segundo habitante es : {segundoHabitante.datosHabitante()}");*/
+#endregion
+
+#region single
+/*try
+{
+    var habitantes = ListaHabitantes.Single(variableTem => variableTem.Edad > 40 && variableTem.Edad < 70);
+    // Creando esta consulta pero con LinQ
+    var habitante2 = (from obtem in ListaHabitantes where obtem.Edad > 70 select obtem).SingleOrDefault();
+
+    Console.WriteLine($"habitante con menos de 20 años {habitantes.datosHabitante()}");
+    if (habitante2 != null) Console.WriteLine($"habitante con mas de 70 años {habitante2.datosHabitante()}");
+}
+catch (Exception)
+{
+    Console.WriteLine($"Ocurrio el error");
+}
+*/
+#endregion
+
+#region typeOf
+var listaEmpleados = new List<Empleado>() {
+    new Medico(){ nombre= "Jorge Casa" },
+    new Enfermero(){ nombre = "Raul Blanco"}
+};
+
+var medico = listaEmpleados.OfType<Medico>();
+Console.WriteLine(medico.Single().nombre);
+
 #endregion
